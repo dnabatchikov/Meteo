@@ -1,0 +1,6 @@
+.panel-body
+    div(style="overflow:auto; padding-left:0%; background:transparent")
+        each item in weekforecastDataset
+            include day-forecast
+        -for(var i=0; i < 7 - weekforecastDataset.length;i++)
+            include day-forecast-dummy

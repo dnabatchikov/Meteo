@@ -1,0 +1,21 @@
+.dayforecast-card {
+  padding: 2px 2px 2px 2px !important;
+  margin-left: 5px !important;
+  margin-right: 5px !important;
+  width: 161px !important;
+  float: left !important;
+  font-size: 13px !important;
+}
+
+.avg-year-trend-temp {
+  font-size: 22px !important;
+}
+
+.celsius {
+  padding-left: 5px;
+  font-size: 18px;
+
+}
+
+
+

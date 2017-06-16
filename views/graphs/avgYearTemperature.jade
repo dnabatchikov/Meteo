@@ -1,0 +1,55 @@
+//
+   Created by Denis on 01.04.2017.
+#avgYearTemperatureChart(style="width:50%")
+    script.
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+            var dataTable = new google.visualization.DataTable();
+            dataTable.addColumn({type: 'date', id: 'Дата'});
+            dataTable.addColumn({type: 'number', id: 'Температура'});
+            var rows = [];
+            !{JSON.stringify(calendar.rows)}.forEach(function(a) {
+                rows.push([new Date(a[0],a[1],a[2]),a[3].toPrecision(3)*1]);
+            });
+            dataTable.addRows(rows);
+
+            var chart = new google.visualization.Calendar(document.getElementById('avgYearTemperatureChart'));
+            var calendarValues, calendarColors;
+            if(!{calendar.min}<0) {
+                calendarValues = [!{calendar.min},!{calendar.min/2<1?(calendar.min/2).toPrecision(1):(Math.round(calendar.min/2))}, 0,Math.round(!{calendar.max/3}),Math.round(!{calendar.max/2}), !{calendar.max}];
+                //calendarColors = ['blue', '#006eff', 'cyan', 'yellow', '#f07', 'red', 'maroon'];
+                calendarColors = ['navy', 'cyan', '#cfcfff', 'yellow', 'orange', 'red'];
+            } else {
+                calendarValues = [!{calendar.min}, !{Math.round(calendar.max/3)},!{Math.round(calendar.max/2)},!{Math.round(2*calendar.max/3)}, !{calendar.max}];
+                calendarColors = ['gold','darkorange','#f07', 'red','maroon'];
+            }
+
+            var options = {
+                title: "Среднегодовая температура",
+                height: 200,
+                width: 1000,
+                calendar: {
+                    daysOfWeek: 'В' +
+                    'ПВСЧПС',
+                    cellSize: 15,
+                    cellColor: {
+                        stroke: 'white',
+                        strokeOpacity: 0.9,
+                        strokeWidth: 1,
+                    }
+
+                },
+                legend: {
+                    width: 4000
+                },
+                colorAxis: {
+                    colors: calendarColors,
+                    values: calendarValues,
+                    maxValue: 10,
+                    minValue: -5
+                }
+
+            };
+
+            chart.draw(dataTable, options);
+        }

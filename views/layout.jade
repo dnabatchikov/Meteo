@@ -1,0 +1,34 @@
+doctype html
+html
+  head
+    meta(name='viewport', content='width=375, initial-scale=1')
+    meta(name="viewport" content="width=375")
+    //meta(http-equiv='Refresh', content='60')
+    title= title
+    link(rel='stylesheet', href='/stylesheets/common.css')
+    link(rel='stylesheet', href='/stylesheets/mobile.css', media='handheld,only max-device-width:375px')
+    link(rel='stylesheet', href='/stylesheets/screen.css', media='screen, only screen')
+    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/bootstrap-theme.min.css')
+    link(rel='stylesheet', href='/stylesheets/varela.css')
+    link(rel='stylesheet', href='/stylesheets/weather-icons.css')
+    link(rel='stylesheet', href='/stylesheets/weather-icons-wind.css')
+
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
+    script(src='/javascripts/bootstrap.min.js')
+    script(src='/javascripts/googlecharts/loader.js')
+    script(src="https://code.jquery.com/jquery-3.1.1.min.js")
+    script(src="https://code.highcharts.com/highcharts.js")
+    script(src="https://code.highcharts.com/highcharts-more.js")
+    script(src="https://code.highcharts.com/modules/heatmap.js")
+    
+    script(src="https://code.highcharts.com/stock/modules/exporting.js")
+    script(src="http://code.highcharts.com/modules/offline-exporting.js")
+    
+    script(src="https://code.highcharts.com/modules/data.js")
+    script(src="https://code.highcharts.com/modules/boost-canvas.js")
+    script(src="https://code.highcharts.com/modules/boost.js")
+
+  body
+    script(src="javascripts/highcharts/sparkline.js")
+    block content

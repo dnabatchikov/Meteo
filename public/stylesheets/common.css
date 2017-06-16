@@ -1,0 +1,123 @@
+.uv-index {
+    background-color: #9f9;
+    font-size: 10px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    width: 18px;
+}
+
+.col-sm-2 {
+  width: 14.2% !important;
+}
+
+.chart {
+  height: 50px;
+}
+
+#avgYearTemperatureChart {
+  box-sizing: border-box;
+}
+
+.varela, .value {
+  font-family: 'Varela Round', sans-serif;
+}
+.value {
+  font-size: 44px;
+}
+.b {
+  border: solid 2px #1b6d85;
+}
+/* FORECASTS */
+.forecast-header, .forecast-center, .center {
+  text-align: center;
+}
+.forecast-line-bottom {
+  border-bottom: 1px solid #aaa;
+}
+.forecast-line-r-side {
+  border-right: 1px solid #aaa;
+}
+
+.forecast-measurement-unit-xs {
+  font-size: x-small;
+}
+/* TRENDS */
+
+.panel-default>.panel-heading {
+  background-color: #efefef !important;
+  background-image: none !important;
+}
+
+.wi {
+  color: #aaa;
+  font-size: 22px;
+  text-align: center;
+}
+.varela {
+  color: #777;
+}
+
+.varela-humidity, .varela-pressure, .varela-temperature {
+  text-align: center;
+  padding-top: 5px;
+  box-sizing: border-box;
+}
+.wi-barometer, .varela-pressure {
+  color: black;
+}
+.wi-humidity, .varela-humidity {
+  color: #1b6d85;
+}
+.wi-thermometer, .varela-temperature {
+  color: #ff2a00;
+}
+
+.wi-inactive {
+  color: #ccc !important;
+}
+
+.avg-year-trend-temp-positive {
+  color: darkred;
+}
+
+.celsius {
+  color: black;
+}
+
+.avg-year-trend-temp-negative {
+  color: darkblue;
+}
+
+.holiday {
+  color:red;
+  font-weight: bold;
+}
+.uv {
+  background-image:url(/images/uv.png) !important;
+  min-height:24px;
+  min-width:15px;
+  background-repeat: no-repeat;
+  background-position: top center;
+}
+
+.uv-green {
+  background-color: rgba(0,255,0, 0.3) !important;
+  
+}
+.uv-yellow {
+  background-color: rgba(255,255,0, 0.3) !important;
+  
+}
+.uv-orange {
+  background-color: rgba(240,128,0, 0.3) !important;
+  
+}
+.uv-red {
+  background-color: rgba(255,0,0, 0.3) !important;
+  
+}
+.uv-purple {
+  background-color: rgba(128,0,128, 0.3) !important;
+  
+}

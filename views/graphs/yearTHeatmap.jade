@@ -1,0 +1,107 @@
+pre#csv(style="display:none") #{heatmap} 
+
+#yearHeatmap
+
+script.
+	var months = {Jan:'Январь',
+	Feb: 'Февраль',
+	Mar: 'Март',
+	Apr: 'Апрель',
+	May: 'Май',
+	Jun: 'Июнь',
+	Jul: 'Июль',
+	Aug: 'Август',
+	Sep: 'Сентябрь',
+	Oct: 'Октябрь',
+	Nov: 'Ноябрь',
+	Dec: 'Декабрь'};
+	Highcharts.chart('yearHeatmap', {
+
+		data: {
+			csv: document.getElementById('csv').innerHTML
+		},
+
+		chart: {
+			width: 831,
+			type: 'heatmap',
+			margin: [60, 10, 80, 50]
+		},
+
+		boost: {
+			useGPUTranslations: true
+		},
+
+		title: {
+			text: '',
+			align: 'left',
+			x: 40
+		},
+
+		subtitle: {
+			text: 'за '+(new Date()).getFullYear()+' год',
+			align: 'left',
+			x: 40
+		},
+
+		xAxis: {
+			type: 'datetime',
+			min: Date.UTC(2017, 3, 1),
+			max: Date.UTC(2018, 0, 1),
+			labels: {
+				align: 'left',
+				x: 5,
+				y: 14,
+				format: '{value:%b}'
+			},
+			showLastLabel: true,
+			tickLength: 16
+		},
+
+		yAxis: {
+			title: {
+				text: null
+			},
+			labels: {
+				format: '{value}:00'
+			},
+			minPadding: 0,
+			maxPadding: 0,
+			startOnTick: false,
+			endOnTick: false,
+			tickPositions: [0, 6, 12, 18, 24],
+			tickWidth: 1,
+			min: 0,
+			max: 23,
+			reversed: true
+		},
+
+		colorAxis: {
+			stops: [
+				[0, '#3060cf'],
+				[0.5, '#fffbbc'],
+				[0.9, '#b4463a'],
+				[1, '#c4463a']
+			],
+			min: !{calendar.min},
+			max: !{calendar.max},
+			startOnTick: false,
+			endOnTick: false,
+			labels: {
+				format: '{value}'
+			}
+		},
+
+		series: [{
+			boostThreshold: 0,
+			borderWidth: 0,
+			nullColor: 'red',
+			colsize: 24 * 36e5, // one day
+			tooltip: {
+				headerFormat: 'Temperature<br/>',
+				pointFormat: '{point.x:%e %b, %Y} {point.y}:00: <b>{point.value} ℃</b>'
+			},
+			turboThreshold: Number.MAX_VALUE // #3404, remove after 4.0.5 release
+		}]
+
+	});
+	

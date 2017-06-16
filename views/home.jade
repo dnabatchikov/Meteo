@@ -1,0 +1,26 @@
+//
+   Created by Denis on 01.04.2017.
+extends layout
+
+block content
+    script(type="text/javascript").
+        var wfD = !{JSON.stringify(weekforecastDataset[6-(7-(new Date()).getDay())].measurements)};
+    script(src="javascripts/init.js")
+
+    .container-fluid
+        aside.row.col-md-3
+            details#outdoor(style="background: transparent", open)
+                summary
+                include trends/index
+            details#indoor
+                summary
+        .col-lg-9
+            include forecasts/weekforecast
+            include trends/avgYearTemperature
+            //include trends/avgYearTemperatureVariation
+            include trends/yearTHeatmap
+            //include trends/meteogram
+
+            //include trends/dayTemperatureHystogram
+
+

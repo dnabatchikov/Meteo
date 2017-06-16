@@ -1,0 +1,101 @@
+    
+#temperatureVariationByMonth(style="min-width:110px;height:450px;margin:0 auto")
+
+script.
+    var container = 'temperatureVariationByMonth';
+    Highcharts.chart(container, {
+
+        chart: {
+            type: 'columnrange',
+            inverted: true
+
+        },
+
+        title: {
+            text: ''
+        },
+
+        subtitle: {
+            text: ''
+        },
+
+        xAxis: {
+            categories: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
+        },
+
+        yAxis: [{
+            title: {
+                text: 'Температура (°C)'
+            },
+            max: 100,
+            min: -30,
+        },{
+            title: {
+                text: 'Температур7а (°C)'
+            },
+            max: 100,
+            min: -30,
+        }],
+
+        plotOptions: {
+            series: {
+                //pointWidth: 3,//width of the column bars irrespective of the chart size
+                pointPadding:0,
+            },
+            /*columnrange: {
+                dataLabels: {
+                    enabled: true,
+                    formatter: function () {
+                        return this.y + '°C';
+                    }
+                }
+            }*/
+        },
+
+        legend: {
+            enabled: false
+        },
+
+        series: [{
+            name: 'Температурный дрейф',
+            data: !{JSON.stringify(variation.T)},
+            color: 'maroon',
+            tooltip: {
+                valueSuffix: ' °C'
+            },
+            dataLabels: {
+                enabled: true,
+                tooltip: 'e',
+                formatter: function () {
+                    return ;//this.y + '°C';
+                }
+            }
+        }, {
+            name: 'Хьюмидорный дрейф',
+            data: !{JSON.stringify(variation.H)},
+            color:'#00b1e8',
+            tooltip: {
+                valueSuffix: ' %'
+            },
+            dataLabels: {
+                enabled: true,
+                formatter: function () {
+                    return ;//this.y + '%';
+                }
+            }
+        }, {
+            name: 'Прессурный дрейф',
+            data: !{JSON.stringify(variation.P)},
+            color:'purple',
+            tooltip: {
+                valueSuffix: 'mmHg'
+            },
+            dataLabels: {
+                enabled: true,
+                formatter: function () {
+                    return ;//this.y + '';
+                }
+            }
+        }]
+
+    });

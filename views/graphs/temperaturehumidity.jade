@@ -1,0 +1,12 @@
+//
+   Created by Denis on 01.04.2017.
+#temperaturehumidityChart
+    //script.
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable(!{JSON.stringify(widgetsDataset.temperaturehumidity.dataset)});
+            var chart = new google.visualization.AreaChart(document.getElementById('temperaturehumidityChart'));
+            options.width = 400;
+            options.height= 200;
+            chart.draw(data, options);
+        }
