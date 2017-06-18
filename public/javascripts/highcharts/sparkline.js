@@ -114,8 +114,9 @@ $(document).ready(function() {
                 {color:settings.H.color, fillOpacity:settings.H.fillOpacity, min:settings.H.min, max:settings.H.max, m:settings.H.m},
                 {color:settings.P.color, fillOpacity:settings.P.fillOpacity, min:settings.P.min, max:settings.P.max, m:settings.P.m},
                 {color:settings.T.colors.pos, fillOpacity:settings.T.fillOpacity, min:settings.T.min, max:settings.T.max, threshold:0, negativeColor:settings.T.colors.neg, m:settings.T.m},
-                {color:settings.dp.color, fillOpacity:settings.dp.fillOpacity, min:settings.T.min-1, max:settings.T.max, m:settings.dp.m},
-                {color:settings.uv.color, fillOpacity:settings.T.fillOpacity, min:settings.uv.min, max:settings.uv.max, m:settings.uv.m}
+                {color:settings.dp.color, fillOpacity:settings.dp.fillOpacity, min:settings.dp.min, max:settings.T.max, m:settings.dp.m},
+                {color:settings.uv.color, fillOpacity:settings.T.fillOpacity, min:settings.uv.min, max:settings.uv.max, m:settings.uv.m},
+                {color:settings.lx.color, fillOpacity:0.4, min:0, max:20000, m:settings.lx.m}
             ],
             chart;
 

@@ -4,7 +4,7 @@ extends layout
 
 block content
     script(type="text/javascript").
-        var wfD = !{JSON.stringify(weekforecastDataset[6-(7-(new Date()).getDay())].measurements)};
+        var wfD = !{JSON.stringify(weekforecastDataset[6].measurements)};
     script(src="javascripts/init.js")
 
     .container-fluid
