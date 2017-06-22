@@ -16,14 +16,14 @@ var options = {
 $(document).ready(function() {
     var settings = {
         P:{
-            min:Math.floor(wfD.pressure.minP),
-            max:Math.ceil(wfD.pressure.maxP),
+            min:wfD.pressure.minP,
+            max:wfD.pressure.maxP,
             color:'#800080',
             fillOpacity:0.4,
             m:'mmHg'},
         T:{
-            min: Math.floor(wfD.temperature.minT),
-            max: Math.ceil(wfD.temperature.maxT),
+            min:wfD.temperature.minT,
+            max:wfD.temperature.maxT,
             colors:{
                 pos:'#900',
                 neg:'#009'
@@ -31,22 +31,22 @@ $(document).ready(function() {
             fillOpacity:0.4,
             m:'°C'},
         dp: {
-            min:wfD.temperature.minT-3,
+            min:0,
             max:wfD.temperature.maxT,
             color:'#000',
             fillOpacity:0.4,
             m:'°C'
         },
         H:{
-            min:Math.floor(wfD.humidity.minH), //-1.0,
-            max:Math.ceil(wfD.humidity.maxH), //+1.0,
+            min:wfD.humidity.minH, //-1.0,
+            max:wfD.humidity.maxH, //+1.0,
             color:'#11b3f0',
             fillOpacity:0.4,
             m:'%'
         },
         lx:{
             min:0, //-1.0,
-            max:10000, //+1.0,
+            max:Math.ceil(wfD.lx.max), //+1.0,
             color:'orange',
             fillOpacity:0.4,
             m:'лк'
