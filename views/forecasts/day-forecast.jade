@@ -34,6 +34,7 @@
 -var divClassD = TD>0?'avg-year-trend-temp-positive':'avg-year-trend-temp-negative';
 -var divClassN = TN>0?'avg-year-trend-temp-positive':'avg-year-trend-temp-negative';
 -var uvColors = ['uv-green','uv-green','uv-green', 'uv-yellow', 'uv-yellow', 'uv-yellow','uv-orange','uv-orange','uv-red','uv-red','uv-red','uv-purple'];
+
 .col-sm-2(class="dayforecast-card", style="background: transparent")
     .col.panel.panel-default
         .forecast-header.panel-title.panel-heading(style="font-family:Helvetica")
@@ -41,7 +42,9 @@
             span(style='display:inline-block;min-width:30%')
                 b(class=(item.dow==6||item.dow==7?'holiday':'')) #{item.day}
             span(class=(item.dow==6||item.dow==7?'holiday':''), style='display:inline-block;min-width:30%') #{item.month}
-            .uv-index.uv(class=uvColors[item.measurements.uv])
+            .uv-index(style="height:21px" class=uvColors[Math.round(item.measurements.uv.avgLevel)])
+                img(src="/images/uv.png" width="15")
+                strong=Math.round(0/*item.measurements.uv.avgLevel*/)
         .panel-body.varela(style='padding:0px')
             div(style='vertical-align: top;width:50%;height:70px;border-bottom: 1px solid #ccc;border-right: 1px solid #ccc; display:inline-block')
                 .wi(class=wiClassD,style='font-size:40px; width:100%; text-align:center; padding-top:10px')
@@ -53,6 +56,7 @@
             div(style='width:50%;height:70px; border-bottom: 1px solid #ccc; display:inline-block')
                 div.avg-year-trend-temp(class=divClassN, style='width:100%;font-size:28px;text-align:center; padding-top:15px') !{Math.abs(TN)}
                     sup.wi.wi-celsius.celsius
+            // Давление
             div(style='height:35px;width:25%;vertical-align:top;padding-top:8px;border-right: none; display:inline-block')
                 div.wi.wi-barometer(style='width:100%;padding:0')
             div(style='padding-top:5px;height:35px;width:25%; border: none; display:inline-block')
@@ -61,6 +65,7 @@
                 div(class='varela-pressure') #{item.measurements.pressure.avgP.toPrecision(3)}
             div(style='padding-top:5px;height:35px;width:25%; border: none; display:inline-block')
                 div(class='varela-pressure') #{item.measurements.pressure.maxP.toPrecision(3)}
+            // Влажность
             div(style='height:35px;width:25%;vertical-align:top;padding-top:8px;border-right: none;border-top: 1px solid #ccc; display:inline-block')
                 div.wi.wi-humidity(style='width:100%;')
             div(style='padding-top:5px;height:35px;width:25%; border-top: 1px solid #ccc; display:inline-block')
@@ -69,6 +74,7 @@
                 div(class='varela-humidity') #{item.measurements.humidity.avgH.toPrecision(2)}
             div(style='padding-top:5px;height:35px;width:25%; border-top: 1px solid #ccc; display:inline-block')
                 div(class='varela-humidity') #{item.measurements.humidity.maxH.toPrecision(2)}
+            // Температура
             div(style='height:35px;width:25%;vertical-align:top;padding-top:8px;border-right: none;border-top: 1px solid #ccc; display:inline-block')
                 div.wi.wi-thermometer(style='width:100%;')
             div(style='padding-top:5px;height:35px;width:25%; border-top: 1px solid #ccc; display:inline-block')
@@ -77,13 +83,21 @@
                 div(class=avgTClass,style='text-align:center;box-sizing:border-box;') #{Math.abs(item.measurements.temperature.avgT)}
             div(style='padding-top:5px;height:35px;width:25%; border-top: 1px solid #ccc; display:inline-block')
                 div(class=maxTClass,style='text-align:center') #{Math.abs(item.measurements.temperature.maxT)}
-            
+            // Освещенность
+            div(style='height:35px;width:25%;vertical-align:top;padding-top:8px;border-right: none;border-top: 1px solid #ccc; display:inline-block')
+                div.wi.wi-day-sunny(style='width:100%; color: orange')
+            div(style='padding-top:5px;height:35px;width:50%; border-top: 1px solid #ccc; display:inline-block')
+                div(class=minTClass,style='text-align:center; vertical-align: middle; padding-top: 4px; color: #ff4d04; font-weight: bold') #{Math.abs(item.measurements.lx.max)}
+            div(style='padding-top:5px;height:35px;width:25%; border-top: 1px solid #ccc; display:inline-block')
+                div(class=minTClass,style='text-align:center; vertical-align: middle; padding-top: 4px; color: #ff4d04; font-weight: bold') &nbsp;
+
+// Восход-закат
             div(style='height:35px;width:25%;vertical-align:top;padding-top:8px;border-right: none;border-top: 1px solid #ccc; display:inline-block')
                 .wi.wi-sunrise(style="color:#000;padding-top:0px; padding-left:3px;font-size:18px;padding-left:5px;")
             div(style='text-align:center;height:35px;width:25%; border-top: 1px solid #ccc; display:inline-block')
-                div(style="padding-top: 8px;font-size:smaller;padding-right:3px") &nbsp;
+                div(style="padding-top: 8px;font-size:smaller;padding-right:3px")=item.sunrise
             div(style='height:35px;width:25%;vertical-align:top;padding-top:8px;border-right: none;border-top: 1px solid #ccc; display:inline-block')
-                .wi.wi-sunset(style="color:#000; padding-left:6px;font-size:18px;")
+                .wi.wi-sunset(style="color:#000; padding-left:6px;font-size:18px;") &nbsp;
             div(style='text-align:center;padding-top:5px;height:35px;width:25%; border-top: 1px solid #ccc; display:inline-block')
                 div(style="padding-top: 3px;font-size:smaller;padding-right:3px") &nbsp;
             

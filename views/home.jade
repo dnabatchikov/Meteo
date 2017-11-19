@@ -4,23 +4,25 @@ extends layout
 
 block content
     script(type="text/javascript").
-        var wfD = !{JSON.stringify(weekforecastDataset[6-(7-(new Date()).getDay())].measurements)};
+        wfD = !{JSON.stringify(weekforecastDataset[(new Date).getDay()==0?6:(7-1-(7-(new Date).getDay()))].measurements)};
     script(src="javascripts/init.js")
-
     .container-fluid
-        aside.row.col-md-3
-            details#outdoor(style="background: transparent", open)
-                summary
-                include trends/index
-            details#indoor
-                summary
-        .col-lg-9
-            include forecasts/weekforecast
-            include trends/avgYearTemperature
-            //include trends/avgYearTemperatureVariation
-            include trends/yearTHeatmap
-            //include trends/meteogram
-
-            //include trends/dayTemperatureHystogram
+        aside.row
+            .col-md-3
+                details#outdoor(style="background: transparent", open)
+                    summary
+                    include trends/index
+                details#indoor
+                    summary
+            .col-md-8
+                include forecasts/weekforecast
+        aside.row
+            .col-sm-6
+                include trends/avgYearTemperature
+                //include trends/avgYearTemperatureVariation
+            .col-sm-6
+                include trends/yearTHeatmap
+                //include trends/meteogram
+                //include trends/dayTemperatureHystogram        
 
 

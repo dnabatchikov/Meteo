@@ -12,6 +12,7 @@
     "express": "~4.13.1",
     "jade": "~1.11.0",
     "jsonfile": "^3.0.0",
+    "md5-file": "^3.1.1",
     "morgan": "~1.6.1",
     "node-cron": "^1.2.0",
     "node-datetime": "^1.0.1",

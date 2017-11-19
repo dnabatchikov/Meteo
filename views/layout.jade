@@ -1,12 +1,13 @@
 doctype html
 html
   head
-    meta(name='viewport', content='width=375, initial-scale=1')
-    meta(name="viewport" content="width=375")
-    //meta(http-equiv='Refresh', content='60')
-    title= title
+    meta(name='viewport', content='width=800, initial-scale=1')
+    meta(name="viewport" content="width=801")
+    meta(http-equiv='Refresh', content='60')
+    
+    title=title
     link(rel='stylesheet', href='/stylesheets/common.css')
-    link(rel='stylesheet', href='/stylesheets/mobile.css', media='handheld,only max-device-width:375px')
+    link(rel='stylesheet', href='/stylesheets/mobile.css', media='handheld,only max-device-width:800px')
     link(rel='stylesheet', href='/stylesheets/screen.css', media='screen, only screen')
     link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
     link(rel='stylesheet', href='/stylesheets/bootstrap-theme.min.css')
@@ -32,3 +33,5 @@ html
   body
     script(src="javascripts/highcharts/sparkline.js")
     block content
+    footer(style="disabled:disabled;position:absolute; bottom: 0; right: 10px; color:#ccc") created by Nabatchikov Denis myMeteo&nbsp;&copy;&nbsp;
+      span=(new Date()).getFullYear()

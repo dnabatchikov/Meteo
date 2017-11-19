@@ -1,4 +1,6 @@
-.content.row
+-var opacity = widgetsDataset.dp.last ? 1 : 0.4
+
+.content.row(style="opacity:"+opacity)
     .col-md-4.center(style="z-index:2000")
         include ../graphs/dp
     .col-md-5.value.center(style="position: relative; padding-top: 25px; font-size: 20px; width: 192px; padding-left: 0px; left: 10.5%;")=widgetsDataset.dp.last

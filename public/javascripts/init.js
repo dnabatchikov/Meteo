@@ -14,7 +14,7 @@ var options = {
 
 
 $(document).ready(function() {
-
+    console.log(wfD);
     var settings = {
         P:{
             min:Math.floor(wfD.pressure.minP),
@@ -32,7 +32,7 @@ $(document).ready(function() {
             fillOpacity:0.4,
             m:'°C'},
         dp: {
-            min:wfD.temperature.minT,
+            min:wfD.temperature.minT-3,
             max:wfD.temperature.maxT,
             color:'#000',
             fillOpacity:0.4,
@@ -44,6 +44,13 @@ $(document).ready(function() {
             color:'#11b3f0',
             fillOpacity:0.4,
             m:'%'
+        },
+        lx:{
+            min: 0, //-1.0,
+            max: wfD.lx.max, //+1.0,
+            color:'orange',
+            fillOpacity:0.4,
+            m:'лк'
         },
         uv:{
             min:0,
