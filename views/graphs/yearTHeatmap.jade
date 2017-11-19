@@ -22,11 +22,12 @@ script.
 		},
 
 		chart: {
-			width: 831,
+			width: 750,
+			height: 150,
 			type: 'heatmap',
-			margin: [60, 10, 80, 50]
+			margin: [10, 10, 0, 50]
 		},
-
+		legend: 'none',
 		boost: {
 			useGPUTranslations: true
 		},
@@ -38,7 +39,7 @@ script.
 		},
 
 		subtitle: {
-			text: 'за '+(new Date()).getFullYear()+' год',
+			text: '',//'за '+(new Date()).getFullYear()+' год',
 			align: 'left',
 			x: 40
 		},

@@ -18,20 +18,20 @@
             if(!{calendar.min}<0) {
                 calendarValues = [!{calendar.min},!{calendar.min/2<1?(calendar.min/2).toPrecision(1):(Math.round(calendar.min/2))}, 0,Math.round(!{calendar.max/3}),Math.round(!{calendar.max/2}), !{calendar.max}];
                 //calendarColors = ['blue', '#006eff', 'cyan', 'yellow', '#f07', 'red', 'maroon'];
-                calendarColors = ['navy', 'cyan', '#cfcfff', 'yellow', 'orange', 'red'];
+                calendarColors = ['midnightblue', 'royalblue', 'powderblue', '#c2ac76', 'tan', '#953524'];
             } else {
                 calendarValues = [!{calendar.min}, !{Math.round(calendar.max/3)},!{Math.round(calendar.max/2)},!{Math.round(2*calendar.max/3)}, !{calendar.max}];
-                calendarColors = ['gold','darkorange','#f07', 'red','maroon'];
+                calendarColors = ['#aaaacc','#fffabb','#daa17b', '#c3463a','maroon'];
             }
 
             var options = {
                 title: "Среднегодовая температура",
-                height: 200,
-                width: 1000,
+                height: 150,
+                width: 800,
                 calendar: {
                     daysOfWeek: 'В' +
                     'ПВСЧПС',
-                    cellSize: 15,
+                    cellSize: 13.5,
                     cellColor: {
                         stroke: 'white',
                         strokeOpacity: 0.9,

@@ -1,5 +1,5 @@
+var yr = (new Date()).getFullYear();
 $(document).ready(function() {
-
 
     Highcharts.SparkLine = function (a, b, c) {
         var hasRenderToArg = typeof a === 'string' || a.nodeName,
@@ -10,10 +10,11 @@ $(document).ready(function() {
                     backgroundColor: null,
                     borderWidth: 0,
                     type: 'area',
-                    margin: [2, 0, 2, 0],
+                    margin: [2, 2, 2, 2],
                     height: 50,
                     style: {
-                        overflow: 'hidden'
+                        overflow: 'hidden',
+                        width: '100%'
                     },
 
                     // small optimalization, saves 1-2 ms each sparkline
@@ -35,7 +36,7 @@ $(document).ready(function() {
                     },
                     startOnTick: false,
                     endOnTick: false,
-                    tickPositions: []
+                    tickPositions: [0]
                 },
                 yAxis: {
                     endOnTick: false,
@@ -84,7 +85,7 @@ $(document).ready(function() {
                         fillOpacity: 0.35
                     },
                     column: {
-                        negativeColor: '#cf0000',
+                        negativeColor: '#0000cf',
                         borderColor: 'silver'
                     },
 
@@ -104,19 +105,51 @@ $(document).ready(function() {
         n = 0;
 
     Highcharts.Chunk = function(settings) {
+        console.log(settings);
         var time = +new Date(),
             i,
             len = $tds.length,
-            $td,
-            stringdata,
-            arr,
+            $td, stringdata, arr,
             opts = [
-                {color:settings.H.color, fillOpacity:settings.H.fillOpacity, min:settings.H.min, max:settings.H.max, m:settings.H.m},
-                {color:settings.P.color, fillOpacity:settings.P.fillOpacity, min:settings.P.min, max:settings.P.max, m:settings.P.m},
-                {color:settings.T.colors.pos, fillOpacity:settings.T.fillOpacity, min:settings.T.min, max:settings.T.max, threshold:0, negativeColor:settings.T.colors.neg, m:settings.T.m},
-                {color:settings.dp.color, fillOpacity:settings.dp.fillOpacity, min:settings.dp.min, max:settings.T.max, m:settings.dp.m},
-                {color:settings.uv.color, fillOpacity:settings.T.fillOpacity, min:settings.uv.min, max:settings.uv.max, m:settings.uv.m},
-                {color:settings.lx.color, fillOpacity:0.4, min:0, max:20000, m:settings.lx.m}
+                {
+                    color:settings.H.color,
+                    fillOpacity:settings.H.fillOpacity,
+                    min:settings.H.min,
+                    max:settings.H.max,
+                    m:settings.H.m
+                },{
+                    color:settings.P.color,
+                    fillOpacity:settings.P.fillOpacity,
+                    min:settings.P.min,
+                    max:settings.P.max,
+                    m:settings.P.m
+                },{
+                    color:settings.T.colors.pos,
+                    fillOpacity:settings.T.fillOpacity,
+                    min:settings.T.minT,
+                    max:settings.T.maxT,
+                    threshold:0,
+                    negativeColor:settings.T.colors.neg,
+                    m:settings.T.m
+                },{
+                    color:settings.dp.color,
+                    fillOpacity:settings.dp.fillOpacity,
+                    min:0,
+                    max:settings.T.maxT,
+                    m:settings.dp.m
+                },{
+                    color:settings.uv.color,
+                    fillOpacity:settings.T.fillOpacity,
+                    min:settings.uv.min,
+                    max:settings.uv.max,
+                    m:settings.uv.m
+                },{
+                    color:settings.lx.color,
+                    fillOpacity:0.4,
+                    min:0,
+                    max:settings.lx.max,
+                    m:settings.lx.m
+                }
             ],
             chart;
 
@@ -132,21 +165,13 @@ $(document).ready(function() {
                 negativeColor: opts[i].negativeColor,
                 color: opts[i].color,
                 fillOpacity: opts[i].fillOpacity,
-                threshold: opts[i].threshold?opts[i].threshold:0,
+                threshold: opts[i].threshold ? opts[i].threshold : 0,
             }];
 
             if (arr[1]) {
                 chart.type = arr[1];
             }
 
-            chart.events= {
-                load: function () {
-                    /*setInterval(function() {
-                        Highcharts.Chunk(settings);
-                        console.log('event');
-                    }, 1000)*/
-                }
-            }
             $td.highcharts('SparkLine', {
                 series: opts[i].series,
                 yAxis: {
@@ -170,10 +195,6 @@ $(document).ready(function() {
                 break;
             }
 
-            // Print a feedback on the performance
-            if (n === fullLen) {
-                //$('#result').html('Generated ' +fullLen + ' sparklines in ' + (new Date() - start) + ' ms');
-            }
         }
         return opts;
     }

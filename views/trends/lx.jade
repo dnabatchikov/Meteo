@@ -1,7 +1,8 @@
 //
    Created by Denis on 01.04.2017.
+
 .content.row
     .col-md-4.center(style="z-index:2000")
         include ../graphs/lx
-    .col-md-5.value.center(style="position: relative; padding-top: 25px; font-size: 20px; width: 192px; padding-left: 0px; left: 10.5%;")=widgetsDataset.lx.last
-        small.varela(style='font-size:10px') лк
+    .col-md-5.value.center(style="position: relative; padding-top: 25px; font-size: 20px; width: 192px; padding-left: 0px; left: 10.5%;")= widgetsDataset.lx.last<1000 ? widgetsDataset.lx.last : (widgetsDataset.lx.last>10000) ? (widgetsDataset.lx.last/10000).toPrecision(2) : (widgetsDataset.lx.last/1000).toPrecision(2)
+        small.varela(style='font-size:10px')= widgetsDataset.lx.last < 1000 ? ' лк' : widgetsDataset.lx.last > 10000 ? ' фот' : ' клк'

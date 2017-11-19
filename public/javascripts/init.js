@@ -14,6 +14,7 @@ var options = {
 
 
 $(document).ready(function() {
+    console.log(wfD);
     var settings = {
         P:{
             min:Math.floor(wfD.pressure.minP),
@@ -45,8 +46,8 @@ $(document).ready(function() {
             m:'%'
         },
         lx:{
-            min:0, //-1.0,
-            max:10000, //+1.0,
+            min: 0, //-1.0,
+            max: wfD.lx.max, //+1.0,
             color:'orange',
             fillOpacity:0.4,
             m:'лк'
