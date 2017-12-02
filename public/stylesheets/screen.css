@@ -2,7 +2,8 @@
   padding: 2px 2px 2px 2px !important;
   margin-left: 0px !important;
   margin-right: 8px !important;
-  width: 161px !important;
+  width: 150px !important;
+  /*height: 329px !important;*/
   float: left !important;
   font-size: 13px !important;
 }
@@ -14,8 +15,65 @@
 .celsius {
   padding-left: 5px;
   font-size: 18px;
-
 }
 
+.uv-index {
+  width: 49%;
+  height: 21px;
+  border-radius: 50% 0px 0px 0px;
+  color: black;
+}
 
+.left-icon {
+  height:36px;
+  width:25%;
+  vertical-align:top;
+  padding-top:8px;
+  border-right: none;
+  border-bottom: 1px solid #ccc;
+  display:inline-block;
+  font-size: 14px;
+}
+
+.bigcell-icon {
+  vertical-align: top;
+  width:50%;
+  height:70px;
+  border-bottom: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  display:inline-block;
+}
+
+.bigcell-unit {
+  width:50%;
+  height:70px;
+  border-bottom: 1px solid #ccc;
+  display:inline-block;
+}
+
+.avg-year-trend-temp {
+  width:100%;
+  font-size:28px;
+  text-align:center;
+  padding-top:15px
+}
+
+.wi-cloud-refresh,
+.wi-day-sunny,
+.wi-day-sprinkle, .wi-nioght-srinkle,
+.wi-day-fog, .wi-night-fog {
+  font-size: 40px;
+  width: 100%;
+  text-align: center;
+  padding-top: 10px
+}
+
+.lx-icon {
+  font-size: 20px;
+  position:absolute;
+  bottom: 67px;
+  left: -55px;
+  width:100%;
+  color: orange;
+}
 
